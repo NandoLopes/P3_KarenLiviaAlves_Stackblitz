@@ -16,15 +16,15 @@
           <input #input type="number" id="cpf"/><br><br>
           <label for="cell">Celular:</label><br>
           <input #input type="number" id="cell"/><br><br>
-          <button (click)="nameC.add(input.value); input.value = ''">Cadastrar</button>&nbsp;&nbsp;
+          <button>Cadastrar</button>&nbsp;&nbsp;
           <button type="reset" >Limpar</button>
       </form><br>
     </div>
     <div class="backmid">  
       <ol>
-        <li *ngFor="let c of nameC.getList(); index as i">
-          {{c.name}}
-          <button (click)="nameC.remove(i)">Excluir</button>
+        <li>
+          
+          <button >Excluir</button>
         </li>
       </ol>
     </div>

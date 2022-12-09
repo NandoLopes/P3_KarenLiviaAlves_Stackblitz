@@ -4,25 +4,25 @@ import { Profissional } from '../../models/profissional';
 import { ProfissionalService } from '../../services/Profissional.service';
 
 @Component({
-  selector: 'app-profissional',
-  templateUrl: './profissional.component.html',
-  styleUrls: ['./profissional.component.css']
+  selector: 'app-clientes',
+  templateUrl: './clientes.component.html',
+  styleUrls: ['./clientes.component.css']
 })
-export class ProfissionalComponent implements OnInit {
+export class ClientesComponent implements OnInit {
 
-  listaProfissional: Profissional[] = [];
+  listaCliente: Profissional[] = [];
 
   constructor(
-    private profissionalService: ProfissionalService,
+    private clienteService: ProfissionalService,
     private router: Router  
   ) { }
 
   ngOnInit() {
-    this.buscarProfissinais();
+    this.buscarClientes();
   }
 
-  buscarProfissinais(){
-    this.listaProfissional = this.profissionalService.getAllProfissional();
+  buscarClientes(){
+    this.listaCliente = this.clienteService.getAllProfissional();
   }
 
   editarProfissional(profissional: Profissional){
@@ -37,14 +37,14 @@ export class ProfissionalComponent implements OnInit {
       return;
     }
 
-    let retorno = this.profissionalService.deleteProfissional(profissional.Id);
+    let retorno = this.clienteService.deleteProfissional(profissional.Id);
     if(!retorno){
       console.log("Erro ao excluir: Profissional não existe.")
     } else {
       console.log(`Profissional excluído: ${profissional.Id}`)
     }
 
-    this.buscarProfissinais();
+    this.buscarClientes();
   }
 
 }

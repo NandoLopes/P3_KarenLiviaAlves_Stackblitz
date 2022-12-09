@@ -7,19 +7,20 @@ import { HelloComponent } from './hello.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
-import { CadastroProfissionalComponent } from './components/profissional/cadastro-profissional/cadastro-profissional.component';
-import { CadastroClienteComponent } from './components/cadastro-cliente/cadastro-cliente.component';
 import { SairComponent } from './components/sair/sair.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SobreComponent } from './components/sobre/sobre.component';
 import { CadastroServicoComponent } from './components/servicos/cadastro-servico/cadastro-servico.component';
 import { ServicosComponent } from './components/servicos/servicos.component';
 import { ProfissionalComponent } from './components/profissional/profissional.component';
+import { CadastroProfissionalComponent } from './components/profissional/cadastro-profissional/cadastro-profissional.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { CadastroClienteComponent } from './components/clientes/cadastro-cliente/cadastro-cliente.component';
 
 import { LoginService } from './services/login.service';
-import { CadastroClienteService } from './services/cadastro-cliente.service';
 import { ServicoService } from './services/Servico.service';
 import { ProfissionalService } from './services/Profissional.service';
+import { ClienteService } from './services/Cliente.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { ProfissionalService } from './services/Profissional.service';
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'profissional'
+        redirectTo: 'clientes'
         //component: HomeComponent,
       },
       {
@@ -50,7 +51,15 @@ import { ProfissionalService } from './services/Profissional.service';
         component: CadastroProfissionalComponent
       },
       {
+        path: 'clientes',
+        component: ClientesComponent
+      },
+      {
         path: 'cadastro-cliente',
+        component: CadastroClienteComponent
+      },
+      {
+        path: 'cadastro-cliente/:id',
         component: CadastroClienteComponent
       },
       {
@@ -85,6 +94,7 @@ import { ProfissionalService } from './services/Profissional.service';
     AgendamentosComponent,
     ProfissionalComponent,
     CadastroProfissionalComponent,
+    ClientesComponent,
     CadastroClienteComponent,
     HomeComponent,
     NavbarComponent,
@@ -99,7 +109,7 @@ import { ProfissionalService } from './services/Profissional.service';
       provide: LOCALE_ID,
       useValue: 'pt-BR',
     },
-    CadastroClienteService,
+    ClienteService,
     ProfissionalService,
     ServicoService,
     LoginService,
