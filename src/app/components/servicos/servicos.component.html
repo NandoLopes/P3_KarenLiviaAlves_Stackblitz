@@ -1,3 +1,28 @@
-<p>
-servicos works!
-</p>
+<body>
+<div class="backmid">
+<hr />
+<form>
+  <h4>Cadastro de serviço</h4>
+  <br />
+  
+  <div class="backmid">
+    <table>
+      <thead>
+        <tr>
+          <th>Serviço</th>
+          <th>Duração</th>
+          <th>Valor</th>
+          <th colspan="2">Opções</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="listaServicos && listaServicos.length">
+        <tr *ngFor="let servico of listaServicos">
+          <td>{{servico.Nome}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</form>
+</div>
+</body>

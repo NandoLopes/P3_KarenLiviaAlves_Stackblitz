@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Servico } from '../../models/servico';
+import { ServicoService } from '../../services/Servico.service';
 
 @Component({
   selector: 'app-servicos',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicosComponent implements OnInit {
 
-  constructor() { }
+  listaServicos: Servico[] = []
+
+  constructor(private servicoService: ServicoService) { }
 
   ngOnInit() {
+  }
+
+  buscaServicos(){
+    this.listaServicos = this.servicoService.getAllServico();
   }
 
 }

@@ -1,6 +1,6 @@
 export class Servico {
   Id: number;
   Nome: string;
-  Duracao: number;
+  Duracao: string;
   Valor: number;
 }

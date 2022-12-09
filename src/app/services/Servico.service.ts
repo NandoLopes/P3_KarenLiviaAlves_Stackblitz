@@ -5,7 +5,11 @@ import { Servico } from '../models/servico';
 export class ServicoService {
 
   //Tabela Servico
-  private servicoLista: Servico[] = [];
+  private servicoLista: Servico[] = [
+    {Id: 1, Nome: 'Cabelo', Duracao: '00:30', Valor: 50},
+    {Id: 2, Nome: 'Barba', Duracao: '00:30', Valor: 50},
+    {Id: 3, Nome: 'Cabelo + Barba', Duracao: '00:50', Valor: 90},
+  ];
 
   constructor() {}
 

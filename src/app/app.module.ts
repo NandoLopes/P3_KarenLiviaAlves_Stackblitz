@@ -26,6 +26,12 @@ import { ServicosComponent } from './components/servicos/servicos.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'cadastro-servico'
+        //component: HomeComponent,
+      },
+      {
         path: 'agendamentos',
         component: AgendamentosComponent
       },
@@ -38,12 +44,6 @@ import { ServicosComponent } from './components/servicos/servicos.component';
         component: CadastroClienteComponent
       },
       {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'cadastro-servico'
-        //component: HomeComponent,
-      },
-      {
         path: 'sair',
         component: HomeComponent
       },
@@ -53,6 +53,10 @@ import { ServicosComponent } from './components/servicos/servicos.component';
       },
       {
         path: 'app-servicos',
+        component: ServicosComponent
+      },
+      {
+        path: 'servicos',
         component: ServicosComponent
       },
       {

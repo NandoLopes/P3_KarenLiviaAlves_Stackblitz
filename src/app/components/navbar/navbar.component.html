@@ -10,31 +10,37 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-    <!-- Eu quero que ao clicar no item do menu, a navbar se recolha automaticamente-->
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/agendamentos']">Agenda</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link" [routerLink]="['/agendamentos']">Agenda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/cadastro-cliente']">Cadastro de cliente</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link" [routerLink]="['/cadastro-cliente']">Cadastro de cliente</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/cadastro-profissional']">Cadastro de profissional</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link" [routerLink]="['/cadastro-profissional']">Cadastro de profissional</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/cadastro-servico']">Cadastro de serviço</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link" [routerLink]="['/servicos']">Serviços</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/sobre']">Sobre</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link" [routerLink]="['/sobre']">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/sair']">Sair</a>
+          <a data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          class="nav-link" [routerLink]="['/sair']">Sair</a>
         </li>
       </ul>
     </div>
