@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="backmid">
+      <hr />
+      <form>
+          <h4>Cadastro de cliente</h4><br>
+          <label for="name">Nome completo:</label><br>
+          <input #input type="text" id="name"/><br><br>
+          <label for="cpf">CPF:</label><br>
+          <input #input type="number" id="cpf"/><br><br>
+          <label for="cell">Celular:</label><br>
+          <input #input type="number" id="cell"/><br><br>
+          <button (click)="nameC.add(input.value); input.value = ''">Cadastrar</button>&nbsp;&nbsp;
+          <button type="reset" >Limpar</button>
+      </form><br>
+    </div>
+    <div class="backmid">  
+      <ol>
+        <li *ngFor="let c of nameC.getList(); index as i">
+          {{c.name}}
+          <button (click)="nameC.remove(i)">Excluir</button>
+        </li>
+      </ol>
+    </div>
+  </body>
+  <footer>
+  <p>Todos os direitos reservados.</p>
+</footer>
+</html>

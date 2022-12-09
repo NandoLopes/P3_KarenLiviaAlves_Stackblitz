@@ -1,0 +1,58 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <div class="backmid">
+    <hr />
+<form [formGroup]="registerForm">
+  <h4>Cadastro de serviço</h4>
+  <br />
+  <div class="backmid">
+      <div class="col-md-8"><br />
+            <label>Nome do Serviço:</label><br />
+            <input type="text"
+              [ngClass]="{'is-invalid': registerForm.get('Nome').errors && registerForm.get('Nome').touched}"
+              formControlName="Nome" placeholder="Insira o Nome">
+            <div *ngIf="registerForm.get('Nome').hasError('required')
+                      && registerForm.get('Nome').touched" class="invalid-feedback">
+              Nome do serviço é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('Nome').hasError('minlength')
+                      && registerForm.get('Nome').touched" class="invalid-feedback">
+              Nome do serviço deve ter no mínimo 4 Caracters.
+            </div>
+            <div *ngIf="registerForm.get('Nome').hasError('maxlength')
+                      && registerForm.get('Nome').touched" class="invalid-feedback">
+              Nome do serviço deve ter no máximo 50 Caracters.
+        </div><br /><br />
+
+            <label>Duração:</label><br />
+            <input type="time"
+              [ngClass]="{'is-invalid': registerForm.get('Duracao').errors && registerForm.get('Duracao').touched}"
+              formControlName="Duracao" placeholder="Insira o Duracao">
+            <div *ngIf="registerForm.get('Duracao').hasError('required')
+                      && registerForm.get('Duracao').touched" class="invalid-feedback">
+              Duração do serviço é obrigatória.
+        </div><br /><br />
+
+            <label>Valor:</label><br />
+            <input type="text"
+              [ngClass]="{'is-invalid': registerForm.get('Valor').errors && registerForm.get('Valor').touched}"
+              formControlName="Valor" placeholder="Insira o Valor">
+            <div *ngIf="registerForm.get('Valor').hasError('required')
+                      && registerForm.get('Valor').touched" class="invalid-feedback">
+              Valor do serviço é obrigatória.
+        </div><br /><br />
+
+          <div>
+          <button [disabled]="!registerForm.valid" class="btn btn-success my-2" (click)="cadastrar()">
+          Salvar Alterações
+          </button><br /><br />
+          </div>
+        </div>
+  </div>
+</form><br />
+<footer>
+  <p>Todos os direitos reservados.</p>
+</footer>
