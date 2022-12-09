@@ -52,7 +52,10 @@
               </div><br /><br />
 
           <div>
-          <button [disabled]="!registerForm.valid" class="btn btn-success my-2" (click)="cadastrar()">
+          <button class="btn btn-warning" (click)="limparForm()">
+          Limpar
+          </button>
+          <button [disabled]="!registerForm.valid" class="btn btn-success" (click)="cadastrar()">
           Salvar Alterações
           </button><br /><br />
           </div>
