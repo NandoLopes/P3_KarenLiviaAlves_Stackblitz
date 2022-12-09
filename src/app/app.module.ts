@@ -60,6 +60,10 @@ import { ServicosComponent } from './components/servicos/servicos.component';
         component: ServicosComponent
       },
       {
+        path: 'cadastro-servico/:id',
+        component: CadastroServicoComponent
+      },
+      {
         path: 'cadastro-servico',
         component: CadastroServicoComponent
       },
@@ -75,6 +79,7 @@ import { ServicosComponent } from './components/servicos/servicos.component';
     NavbarComponent,
     SairComponent,
     SobreComponent,
+    ServicosComponent,
     CadastroServicoComponent,
   ],
   bootstrap: [AppComponent],
