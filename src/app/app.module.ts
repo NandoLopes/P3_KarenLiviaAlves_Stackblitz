@@ -7,17 +7,19 @@ import { HelloComponent } from './hello.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
-import { CadastroProfissionalComponent } from './components/cadastro-profissional/cadastro-profissional.component';
+import { CadastroProfissionalComponent } from './components/profissional/cadastro-profissional/cadastro-profissional.component';
 import { CadastroClienteComponent } from './components/cadastro-cliente/cadastro-cliente.component';
 import { SairComponent } from './components/sair/sair.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SobreComponent } from './components/sobre/sobre.component';
-import { CadastroClienteService } from './services/cadastro-cliente.service';
-import { CadastroProfissionalService } from './services/cadastro-profissional.service';
-import { ServicoService } from './services/Servico.service';
-import { LoginService } from './services/login.service';
 import { CadastroServicoComponent } from './components/servicos/cadastro-servico/cadastro-servico.component';
 import { ServicosComponent } from './components/servicos/servicos.component';
+import { ProfissionalComponent } from './components/profissional/profissional.component';
+
+import { LoginService } from './services/login.service';
+import { CadastroClienteService } from './services/cadastro-cliente.service';
+import { ServicoService } from './services/Servico.service';
+import { ProfissionalService } from './services/Profissional.service';
 
 @NgModule({
   imports: [
@@ -28,12 +30,20 @@ import { ServicosComponent } from './components/servicos/servicos.component';
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'cadastro-servico'
+        redirectTo: 'profissional'
         //component: HomeComponent,
       },
       {
         path: 'agendamentos',
         component: AgendamentosComponent
+      },
+      {
+        path: 'profissional',
+        component: ProfissionalComponent
+      },
+      {
+        path: 'cadastro-profissional/:id',
+        component: CadastroProfissionalComponent
       },
       {
         path: 'cadastro-profissional',
@@ -73,6 +83,7 @@ import { ServicosComponent } from './components/servicos/servicos.component';
     AppComponent,
     HelloComponent,
     AgendamentosComponent,
+    ProfissionalComponent,
     CadastroProfissionalComponent,
     CadastroClienteComponent,
     HomeComponent,
@@ -89,7 +100,7 @@ import { ServicosComponent } from './components/servicos/servicos.component';
       useValue: 'pt-BR',
     },
     CadastroClienteService,
-    CadastroProfissionalService,
+    ProfissionalService,
     ServicoService,
     LoginService,
   ],
