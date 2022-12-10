@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Servico } from '../../models/servico';
+import { LoginService } from '../../services/Login.service';
 import { ServicoService } from '../../services/Servico.service';
 
 @Component({
@@ -13,12 +14,24 @@ export class ServicosComponent implements OnInit {
   listaServicos: Servico[] = []
 
   constructor(
+    private loginService: LoginService,
     private servicoService: ServicoService,
     private router: Router  
   ) { }
 
   ngOnInit() {
+    this.verificarUsuario();
     this.buscarServicos();
+  }
+
+  verificarUsuario(){
+    let usuario = this.loginService.getUsuarioLogado();
+
+    if(!usuario || usuario == undefined){
+      this.router.navigate(
+        ['/login']
+      );
+    }
   }
 
   buscarServicos(){

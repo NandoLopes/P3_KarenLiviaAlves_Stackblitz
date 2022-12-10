@@ -12,6 +12,7 @@ import { LoginService } from '../../services/Login.service';
 export class LoginComponent implements OnInit {
 
   usuario: Login;
+  loginValido: boolean = null;
 
   registerForm: FormGroup;
 
@@ -21,13 +22,25 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.loginService.deslogar();
     this.validacao();
   }
 
   logar(){
     if(this.registerForm.valid){
       this.usuario = {...this.usuario, ...this.registerForm.value};
+      this.verificarLogin(this.usuario);
     }
+  }
+
+  verificarLogin(usuario: Login){
+    console.log(usuario);
+    if(this.loginService.logar(usuario)){
+      this.router.navigate(
+        ['/home']
+      );
+    }
+    this.loginValido = false;
   }
 
   validacao(){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Profissional } from '../../models/profissional';
+import { LoginService } from '../../services/Login.service';
 import { ProfissionalService } from '../../services/Profissional.service';
 
 @Component({
@@ -13,12 +14,24 @@ export class ProfissionalComponent implements OnInit {
   listaProfissional: Profissional[] = [];
 
   constructor(
+    private loginService: LoginService,
     private profissionalService: ProfissionalService,
     private router: Router  
   ) { }
 
   ngOnInit() {
+    this.verificarUsuario();
     this.buscarProfissinais();
+  }
+
+  verificarUsuario(){
+    let usuario = this.loginService.getUsuarioLogado();
+
+    if(!usuario || usuario == undefined){
+      this.router.navigate(
+        ['/login']
+      );
+    }
   }
 
   buscarProfissinais(){

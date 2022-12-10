@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from '../../models/cliente';
 import { ClienteService } from '../../services/Cliente.service';
+import { LoginService } from '../../services/Login.service';
 
 @Component({
   selector: 'app-clientes',
@@ -13,12 +14,24 @@ export class ClientesComponent implements OnInit {
   listaCliente: Cliente[] = [];
 
   constructor(
+    private loginService: LoginService,
     private clienteService: ClienteService,
     private router: Router  
   ) { }
 
   ngOnInit() {
+    this.verificarUsuario();
     this.buscarClientes();
+  }
+
+  verificarUsuario(){
+    let usuario = this.loginService.getUsuarioLogado();
+
+    if(!usuario || usuario == undefined){
+      this.router.navigate(
+        ['/login']
+      );
+    }
   }
 
   buscarClientes(){

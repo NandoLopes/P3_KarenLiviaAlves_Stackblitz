@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profissional } from '../../../models/profissional';
+import { LoginService } from '../../../services/Login.service';
 import { ProfissionalService } from '../../../services/Profissional.service';
 
 @Component({
@@ -17,18 +18,30 @@ export class CadastroProfissionalComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
+    private loginService: LoginService,
     private profissionalService: ProfissionalService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router) {  }
 
   ngOnInit() {
+    this.verificarUsuario();
     this.validacao();
     
     //Tenta pegar o id passado pela rota, e se existir e for maior que 0, busca o Profissional pela service
     this.routeId =  this.activatedRoute.snapshot.paramMap.get("id");
     if(this.routeId && this.routeId > 0){
       this.carregarProfissional(this.routeId);
+    }
+  }
+
+  verificarUsuario(){
+    let usuario = this.loginService.getUsuarioLogado();
+
+    if(!usuario || usuario == undefined){
+      this.router.navigate(
+        ['/login']
+      );
     }
   }
 

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { SairComponent } from './components/sair/sair.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SobreComponent } from './components/sobre/sobre.component';
 import { CadastroServicoComponent } from './components/servicos/cadastro-servico/cadastro-servico.component';
@@ -93,7 +92,6 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    SairComponent,
     SobreComponent,
     ServicosComponent,
     CadastroServicoComponent,

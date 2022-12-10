@@ -24,6 +24,19 @@ export class LoginService {
     return this.usuarioLogado;
   }
 
+  public logar(usuario: Login): boolean{
+    let verificacao
+    verificacao = this.listContas.find(x => x.Usuario == usuario.Usuario);
+    if(!verificacao || verificacao == undefined)
+      return false;
+
+    if(verificacao.Senha != usuario.Senha)
+      return false;
+
+    this.usuarioLogado = verificacao;
+    return true;
+  }
+
   public deslogar(){
     this.usuarioLogado = null;
   }
