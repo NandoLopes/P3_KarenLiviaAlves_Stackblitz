@@ -42,7 +42,7 @@ export class ProfissionalService {
       return null;
   
     //Procura qual o id do serviço na array
-    const index = this.profissionalLista.findIndex(x => x.Id = profissional.Id);
+    const index = this.profissionalLista.findIndex(x => x.Id == profissional.Id);
     if (index !== -1) {
       this.profissionalLista[index] = profissional;
       return this.profissionalLista[index];
@@ -54,7 +54,7 @@ export class ProfissionalService {
   //Deleta o serviço pelo id
   public deleteProfissional(id: number): any {
     //Procura o serviço pelo id fornecido
-    let profissional = this.profissionalLista.find(x => x.Id = id);
+    let profissional = this.profissionalLista.find(x => x.Id == id);
 
     if(profissional == null || profissional == undefined)
       //Se não encontrar, retorna nulo

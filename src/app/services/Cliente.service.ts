@@ -6,9 +6,9 @@ export class ClienteService {
 
   //Tabela Cliente
   private clienteLista: Cliente[] = [
-    {Id: 1, Nome: 'Karen Livia', Telefone: '013992012044', Cpf: '1234567890'},
-    {Id: 2, Nome: 'Camila Cabelo', Telefone: '01334591574', Cpf: '9876543210'},
-    {Id: 3, Nome: 'Fabrício Guimarães', Telefone: '01334591574', Cpf: '1472580695'},
+    {Id: 1, Nome: 'Joílson Mendes', Telefone: '013992012044', Cpf: '12345678945'},
+    {Id: 2, Nome: 'Takamassa Nomuro', Telefone: '01334591574', Cpf: '98765432100'},
+    {Id: 3, Nome: 'Harry Potter', Telefone: '01334591574', Cpf: '14725806955'},
   ];
 
   constructor() {}
@@ -42,7 +42,7 @@ export class ClienteService {
       return null;
   
     //Procura qual o id do cliente na array
-    const index = this.clienteLista.findIndex(x => x.Id = Cliente.Id);
+    const index = this.clienteLista.findIndex(x => x.Id == Cliente.Id);
     if (index !== -1) {
       this.clienteLista[index] = Cliente;
       return this.clienteLista[index];
@@ -54,7 +54,7 @@ export class ClienteService {
   //Deleta o cliente pelo id
   public deleteCliente(id: number): any {
     //Procura o cliente pelo id fornecido
-    let Cliente = this.clienteLista.find(x => x.Id = id);
+    let Cliente = this.clienteLista.find(x => x.Id == id);
 
     if(Cliente == null || Cliente == undefined)
       //Se não encontrar, retorna nulo

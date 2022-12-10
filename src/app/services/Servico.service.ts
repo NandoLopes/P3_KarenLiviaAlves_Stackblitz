@@ -43,7 +43,7 @@ export class ServicoService {
       return null;
   
     //Procura qual o id do serviço na array
-    const index = this.servicoLista.findIndex(x => x.Id = servico.Id);
+    const index = this.servicoLista.findIndex(x => x.Id == servico.Id);
     if (index !== -1) {
       this.servicoLista[index] = servico;
       return this.servicoLista[index];
@@ -55,17 +55,15 @@ export class ServicoService {
   //Deleta o serviço pelo id
   public deleteServico(id: number): any {
     //Procura o serviço pelo id fornecido
-    let servico = this.servicoLista.find(x => x.Id = id);
-
+    let servico = this.servicoLista.find(x => x.Id == id);
+    //Se não encontrar, retorna nulo
     if(servico == null || servico == undefined)
-      //Se não encontrar, retorna nulo
       return null;
-
+      
     //Procura qual o id do serviço na array
-    const index = this.servicoLista.indexOf(servico);
+    let index = this.servicoLista.findIndex(x => x.Id == servico.Id);
     if (index !== -1) {
       this.servicoLista.splice(index, 1);
-      console.log(this.servicoLista);
     }
 
     return servico;

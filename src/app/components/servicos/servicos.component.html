@@ -1,41 +1,41 @@
-<body>
-<div class="backmid">
-<hr />
-<form>
-  <h4>Cadastro de serviço</h4>
-  <br />
-  <button [routerLink]="['/cadastro-servico']">Cadastrar Serviço</button>
-  
-  <div class="backmid">
-    <table>
-      <thead>
-        <tr>
-          <th>Serviço</th>
-          <th>Duração</th>
-          <th>Valor</th>
-          <th colspan="2">Opções</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="listaServicos && listaServicos.length">
-        <tr *ngFor="let servico of listaServicos">
-          <td>{{servico.Nome}}</td>
-          <td>{{servico.Duracao}}</td>
-          <td>R$ {{servico.Valor}}</td>
-          <td>
-          <div class="btn-group">
-            <button class="btn btn-sm btn-success" (click)="editarServico(servico)">
-              Editar
-            </button>
-            <button class="btn btn-sm btn-danger" (click)="excluirServico(servico)">
-              Excluir
-            </button>
-          </div>
-        </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</form>
-</div>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="backmid">
+      <form class="center">
+        <h4>Tabela de serviços</h4><br>
+          <table class="center">
+            <thead><br>
+              <tr>
+                <th>Serviço</th>
+                <th>Duração</th>
+                <th>Valor</th>
+                <th colspan="2">Opções</th>
+              </tr>
+            </thead>
+              <tbody *ngIf="listaServicos && listaServicos.length">
+                <tr *ngFor="let servico of listaServicos">                
+                  <td>{{servico.Nome}}</td>
+                  <td>{{servico.Duracao}}</td>
+                  <td>R$ {{servico.Valor}}</td>
+                  <td>
+                    <div>
+                      <button (click)="editarServico(servico)">Editar</button>
+                      <button (click)="excluirServico(servico)">Excluir</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+          </table><br>
+          <button [routerLink]="['/cadastro-servico']">Cadastrar serviço</button><br><br>
+      </form>
+    </div>
+  </body>
+  <footer>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+</html>

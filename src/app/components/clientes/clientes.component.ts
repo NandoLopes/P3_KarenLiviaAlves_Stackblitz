@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Profissional } from '../../models/profissional';
-import { ProfissionalService } from '../../services/Profissional.service';
+import { Cliente } from '../../models/cliente';
+import { ClienteService } from '../../services/Cliente.service';
 
 @Component({
   selector: 'app-clientes',
@@ -10,10 +10,10 @@ import { ProfissionalService } from '../../services/Profissional.service';
 })
 export class ClientesComponent implements OnInit {
 
-  listaCliente: Profissional[] = [];
+  listaCliente: Cliente[] = [];
 
   constructor(
-    private clienteService: ProfissionalService,
+    private clienteService: ClienteService,
     private router: Router  
   ) { }
 
@@ -22,26 +22,26 @@ export class ClientesComponent implements OnInit {
   }
 
   buscarClientes(){
-    this.listaCliente = this.clienteService.getAllProfissional();
+    this.listaCliente = this.clienteService.getAllCliente();
   }
 
-  editarProfissional(profissional: Profissional){
+  editarCliente(cliente: Cliente){
     this.router.navigate(
-      ['/cadastro-profissional', profissional.Id]
+      ['/cadastro-cliente', cliente.Id]
     );
   }
 
-  excluirProfissional(profissional: Profissional){
-    if(!profissional.Id || profissional.Id == undefined){
-      console.log("Erro ao excluir: Profissional inválido.");
+  excluirCliente(cliente: Cliente){
+    if(!cliente.Id || cliente.Id == undefined){
+      console.log("Erro ao excluir: Cliente inválido.");
       return;
     }
 
-    let retorno = this.clienteService.deleteProfissional(profissional.Id);
+    let retorno = this.clienteService.deleteCliente(cliente.Id);
     if(!retorno){
-      console.log("Erro ao excluir: Profissional não existe.")
+      console.log("Erro ao excluir: Cliente não existe.")
     } else {
-      console.log(`Profissional excluído: ${profissional.Id}`)
+      console.log(`Cliente excluído: ${cliente.Id}`)
     }
 
     this.buscarClientes();

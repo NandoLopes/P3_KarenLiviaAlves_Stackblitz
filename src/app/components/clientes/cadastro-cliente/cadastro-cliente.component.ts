@@ -72,8 +72,8 @@ export class CadastroClienteComponent implements OnInit {
   validacao(){
     this.registerForm = this.fb.group({
       Id: [],
-      Nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-      Telefone: ['', Validators.required, Validators.minLength(8), Validators.maxLength(13)],
+      Nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      Telefone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(13)]],
       Cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]]
     });
   }
