@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   verificarLogin(usuario: Login){
-    console.log(usuario);
     if(this.loginService.logar(usuario)){
       this.router.navigate(
         ['/home']

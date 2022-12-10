@@ -20,6 +20,7 @@ import { ProfissionalService } from './services/Profissional.service';
 import { ClienteService } from './services/Cliente.service';
 import { LoginService } from './services/Login.service';
 import { LoginComponent } from './components/login/login.component';
+import { CriarContaComponent } from './components/criar-conta/criar-conta.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { LoginComponent } from './components/login/login.component';
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'login'
+        redirectTo: 'home'
       },
       {
         path: 'home',
@@ -65,6 +66,10 @@ import { LoginComponent } from './components/login/login.component';
         component: LoginComponent
       },
       {
+        path: 'cadastrar',
+        component: CriarContaComponent
+      },
+      {
         path: 'sobre',
         component: SobreComponent
       },
@@ -91,6 +96,7 @@ import { LoginComponent } from './components/login/login.component';
     CadastroClienteComponent,
     HomeComponent,
     LoginComponent,
+    CriarContaComponent,
     NavbarComponent,
     SobreComponent,
     ServicosComponent,

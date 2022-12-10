@@ -6,7 +6,7 @@ export class LoginService {
 
   listContas: Login[] = [
     {Id: 1, Nome: "Administrador", Usuario: "admin", Senha: "admin"},
-    {Id: 2, Nome: "Karen", Usuario: "Nerak", Senha: "123"}
+    {Id: 2, Nome: "Karen", Usuario: "Nerak", Senha: "1234"}
   ];
   usuarioLogado: Login;
 
@@ -20,12 +20,16 @@ export class LoginService {
     return this.listContas.find(x => x.Id == id);
   }
 
+  public getUsuarioByUsuario(usuario: string): Login {
+    return this.listContas.find(x => x.Usuario == usuario);
+  }
+
   public getUsuarioLogado(): any{
     return this.usuarioLogado;
   }
 
   public logar(usuario: Login): boolean{
-    let verificacao
+    let verificacao: Login;
     verificacao = this.listContas.find(x => x.Usuario == usuario.Usuario);
     if(!verificacao || verificacao == undefined)
       return false;
