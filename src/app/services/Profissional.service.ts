@@ -23,17 +23,17 @@ export class ProfissionalService {
   }
 
   //Cria um Id pro serviço e insere o serviço no "banco de dados"
-  public setProfissional(newprofissional: Profissional): Profissional {
+  public setProfissional(newProfissional: Profissional): Profissional {
     //Verifica se existe item na lista
     if(this.profissionalLista.length > 0){
       //Se houver, cria igual id do ultimo item + 1
-      newprofissional.Id = this.profissionalLista[this.profissionalLista.length - 1].Id + 1;
+      newProfissional.Id = this.profissionalLista[this.profissionalLista.length - 1].Id + 1;
     } else {
       //Se não houver, cria com id 1
-      newprofissional.Id = 1;
+      newProfissional.Id = 1;
     }
-    this.profissionalLista.push(newprofissional);
-    return newprofissional;
+    this.profissionalLista.push(newProfissional);
+    return newProfissional;
   }
 
   //Edita o serviço

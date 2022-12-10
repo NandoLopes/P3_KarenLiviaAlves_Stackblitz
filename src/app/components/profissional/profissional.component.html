@@ -9,13 +9,11 @@
       <form class="center">
         <h4>Tabela de Profissional</h4><br>
           <table class="center">
-            <thead><br>
               <tr>
                 <th>Nome</th>
                 <th>Função</th>
                 <th colspan="2">Opções</th>
               </tr>
-            </thead>
               <tbody *ngIf="listaProfissional && listaProfissional.length">
                 <tr *ngFor="let profissional of listaProfissional">                
                   <td>{{profissional.Nome}}</td>
@@ -29,7 +27,7 @@
                 </tr>
               </tbody>
           </table><br>
-          <button [routerLink]="['/cadastro-profissional']">Cadastrar Profissional</button><br><br>
+          <button class="btnexterno" [routerLink]="['/cadastro-profissional']">Cadastrar Profissional</button><br><br>
       </form>
     </div>
   </body>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-//import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
+import { Login } from '../../models/login';
+import { LoginService } from '../../services/Login.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  //constructor(public nameC: LoginService) {}
+  usuario = new Login();
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.verificarUsuario();
   }
 
-  //cadastrarCliente(name: string, cell: number){}
+  verificarUsuario(){
+    this.usuario = this.loginService.getUsuarioLogado();
+
+    if(!this.usuario || this.usuario == undefined){
+      this.router.navigate(
+        ['/login']
+      );
+    }
+  }
     
 }

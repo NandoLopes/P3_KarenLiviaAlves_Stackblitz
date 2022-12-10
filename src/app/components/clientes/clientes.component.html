@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="backmid">
+    <div>
       <form class="center">
-        <h4>Tabela de Clientes</h4><br>
+        <h4>Tabela de clientes</h4><br>
           <table class="center">
-            <thead><br>
               <tr>
                 <th>Nome</th>
                 <th>Telefone</th>
-                <th colspan="2">Opções</th>
+                <th>Opções</th>
               </tr>
-            </thead>
               <tbody *ngIf="listaCliente && listaCliente.length">
                 <tr *ngFor="let cliente of listaCliente">                
                   <td>{{cliente.Nome}}</td>
@@ -29,7 +27,7 @@
                 </tr>
               </tbody>
           </table><br>
-          <button [routerLink]="['/cadastro-cliente']">Cadastrar Cliente</button><br><br>
+          <button class="btnexterno" [routerLink]="['/cadastro-cliente']">Cadastrar Cliente</button><br><br>
       </form>
     </div>
   </body>

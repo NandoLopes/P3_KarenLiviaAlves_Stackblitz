@@ -9,14 +9,12 @@
       <form class="center">
         <h4>Tabela de serviços</h4><br>
           <table class="center">
-            <thead><br>
               <tr>
                 <th>Serviço</th>
                 <th>Duração</th>
                 <th>Valor</th>
                 <th colspan="2">Opções</th>
               </tr>
-            </thead>
               <tbody *ngIf="listaServicos && listaServicos.length">
                 <tr *ngFor="let servico of listaServicos">                
                   <td>{{servico.Nome}}</td>
@@ -31,7 +29,7 @@
                 </tr>
               </tbody>
           </table><br>
-          <button [routerLink]="['/cadastro-servico']">Cadastrar serviço</button><br><br>
+          <button class="btnexterno" [routerLink]="['/cadastro-servico']">Cadastrar serviço</button><br><br>
       </form>
     </div>
   </body>

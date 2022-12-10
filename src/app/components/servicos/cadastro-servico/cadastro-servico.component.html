@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -43,8 +42,8 @@
               && registerForm.get('Valor').touched" class="invalid-feedback">O valor mínimo do serviço é R$10,00.
             </div><br /><br />
             <div>
-              <button (click)="limparForm()">Limpar</button>
-              <button [disabled]="!registerForm.valid" (click)="cadastrar()">Salvar alterações
+              <button class="btnexterno" (click)="limparForm()">Limpar</button>
+              <button class="btnexterno" [disabled]="!registerForm.valid" (click)="cadastrar()">Salvar alterações
               </button><br /><br />
               <a [routerLink]="['/servicos']">Voltar para tabela de serviços</a>
             </div>
