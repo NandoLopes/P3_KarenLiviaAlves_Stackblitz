@@ -1,36 +1,68 @@
+<!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div class="backmid">
-      <hr />
-      <form>
-        <h4>Cadastro de profissional</h4><br>
-          <label for="name">Nome completo:</label><br>
-          <input #input type="text" id="name"/><br><br>
-          <label for="funcao">Função:</label><br>
-          <select name="funcao" id="funcao">
-            <option value=""></option>
-            <option value="barbeiro">Barbeiro</option>
-            <option value="manicure">Manicure</option>
-            <option value="admin">Admin</option>
-          </select><br><br>
-          <label for="servicos">Serviços:</label><br>
-          <input #input type="text" id="servicos"/><br><br>
-    <button (click)="cadastrar">Cadastrar</button>&nbsp;&nbsp;
-    <button type="reset" >Limpar</button>
-      </form><br>
-    </div>
-    <div class="backmid">
-      <ol>
-        <li>
-          <button (click)="cadastrar">Excluir</button>
-        </li>
-      </ol>
+    <div>
+      <form class="center" [formGroup]="registerForm">
+        <h4 *ngIf="routeId > 0; else cadastrarCliente">Editar Cliente</h4>
+        <br />
+        <div>
+        <ng-template #cadastrarCliente>
+          <h4>Cadastrar Cliente</h4>
+        </ng-template>
+          <div class="center"><br />
+            <label>Nome do Cliente:</label><br />
+            <input type="text" [ngClass]="{'is-invalid': registerForm.get('Nome').errors && registerForm.get('Nome').touched}"
+            formControlName="Nome" placeholder="Insira o nome">
+            <div *ngIf="registerForm.get('Nome').hasError('required')
+              && registerForm.get('Nome').touched" class="invalid-feedback">Nome do Cliente é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('Nome').hasError('minlength')
+              && registerForm.get('Nome').touched" class="invalid-feedback">Nome do Cliente deve ter no mínimo 4 caracteres.
+            </div>
+            <div *ngIf="registerForm.get('Nome').hasError('maxlength')
+              && registerForm.get('Nome').touched" class="invalid-feedback">Nome do Cliente deve ter no máximo 20 caracteres.
+            </div><br /><br />
+
+            <label>Funcao:</label><br />
+            <select type="text"[ngClass]="{'is-invalid': registerForm.get('Funcao').errors && registerForm.get('Funcao').touched}"
+              formControlName="Funcao" placeholder="Insira o Funcao">
+              <option value=""></option>
+              <option value="barbeiro">Barbeiro</option>
+              <option value="manicure">Manicure</option>
+              <option value="admin">Admin</option>
+            </select>
+            <div *ngIf="registerForm.get('Funcao').hasError('required')
+              && registerForm.get('Funcao').touched" class="invalid-feedback">Funcao do Cliente é obrigatória.
+            </div><br /><br />
+
+            <label>Cpf:</label><br />
+            <input type="text" [ngClass]="{'is-invalid': registerForm.get('Cpf').errors && registerForm.get('Cpf').touched}"
+              formControlName="Cpf" placeholder="Insira o Cpf">
+            <div *ngIf="registerForm.get('Cpf').hasError('required')
+              && registerForm.get('Cpf').touched" class="invalid-feedback">Cpf do Cliente é obrigatório.
+            </div>
+            <div *ngIf="registerForm.get('Cpf').hasError('minLength')
+              && registerForm.get('Cpf').touched" class="invalid-feedback">Insira um CPF válido
+            </div>
+            <div *ngIf="registerForm.get('Cpf').hasError('maxLength')
+              && registerForm.get('Cpf').touched" class="invalid-feedback">Insira um CPF válido
+            </div><br /><br />
+            <div>
+              <button (click)="limparForm()">Limpar</button>
+              <button [disabled]="!registerForm.valid" (click)="cadastrar()">Salvar alterações
+              </button><br /><br />
+              <a [routerLink]="['/clientes']">Voltar para tabela de Clientes</a>
+            </div>
+          </div>
+        </div>
+      </form><br/>
     </div>
   </body>
   <footer>
   <p>Todos os direitos reservados.</p>
-</footer>
+  </footer>
 </html>

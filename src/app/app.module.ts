@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { AgendamentosComponent } from './components/agendamentos/agendamentos.component';
 import { SairComponent } from './components/sair/sair.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SobreComponent } from './components/sobre/sobre.component';
@@ -17,10 +16,10 @@ import { CadastroProfissionalComponent } from './components/profissional/cadastr
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { CadastroClienteComponent } from './components/clientes/cadastro-cliente/cadastro-cliente.component';
 
-import { LoginService } from './services/login.service';
 import { ServicoService } from './services/Servico.service';
 import { ProfissionalService } from './services/Profissional.service';
 import { ClienteService } from './services/Cliente.service';
+import { LoginService } from './services/Login.service';
 
 @NgModule({
   imports: [
@@ -33,10 +32,6 @@ import { ClienteService } from './services/Cliente.service';
         pathMatch: 'full',
         redirectTo: 'clientes'
         //component: HomeComponent,
-      },
-      {
-        path: 'agendamentos',
-        component: AgendamentosComponent
       },
       {
         path: 'profissional',
@@ -91,7 +86,6 @@ import { ClienteService } from './services/Cliente.service';
   declarations: [
     AppComponent,
     HelloComponent,
-    AgendamentosComponent,
     ProfissionalComponent,
     CadastroProfissionalComponent,
     ClientesComponent,

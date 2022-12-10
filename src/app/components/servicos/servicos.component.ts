@@ -41,7 +41,7 @@ export class ServicosComponent implements OnInit {
     if(!retorno){
       console.log("Erro ao excluir: Serviço não existe.")
     } else {
-      console.log(`Serviço excluído: ${servico.Id}`)
+      console.log(`Serviço excluído: ${servico.Nome}`)
     }
 
     this.buscarServicos();

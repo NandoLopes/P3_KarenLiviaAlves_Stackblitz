@@ -1,1 +1,39 @@
-<div></div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="backmid">
+      <form class="center">
+        <h4>Tabela de Profissional</h4><br>
+          <table class="center">
+            <thead><br>
+              <tr>
+                <th>Nome</th>
+                <th>Função</th>
+                <th colspan="2">Opções</th>
+              </tr>
+            </thead>
+              <tbody *ngIf="listaProfissional && listaProfissional.length">
+                <tr *ngFor="let profissional of listaProfissional">                
+                  <td>{{profissional.Nome}}</td>
+                  <td>{{profissional.Funcao}}</td>
+                  <td>
+                    <div>
+                      <button (click)="editarProfissional(profissional)">Editar</button>
+                      <button (click)="excluirProfissional(profissional)">Excluir</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+          </table><br>
+          <button [routerLink]="['/cadastro-profissional']">Cadastrar Profissional</button><br><br>
+      </form>
+    </div>
+  </body>
+  <footer>
+    <p>Todos os direitos reservados.</p>
+  </footer>
+</html>

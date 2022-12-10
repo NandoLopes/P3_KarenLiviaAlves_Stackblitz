@@ -41,7 +41,7 @@ export class ClientesComponent implements OnInit {
     if(!retorno){
       console.log("Erro ao excluir: Cliente não existe.")
     } else {
-      console.log(`Cliente excluído: ${cliente.Id}`)
+      console.log(`Cliente excluído: ${cliente.Nome}`)
     }
 
     this.buscarClientes();

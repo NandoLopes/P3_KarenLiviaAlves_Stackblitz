@@ -6,9 +6,9 @@ export class ProfissionalService {
 
   //Tabela Profissional
   private profissionalLista: Profissional[] = [
-    {Id: 1, Nome: 'Karen Livia', Telefone: '013992012044', Cpf: '1234567890'},
-    {Id: 2, Nome: 'Camila Cabelo', Telefone: '01334591574', Cpf: '9876543210'},
-    {Id: 3, Nome: 'Fabrício Guimarães', Telefone: '01334591574', Cpf: '1472580695'},
+    {Id: 1, Nome: 'Karen Livia', Funcao: 'Barbeiro', Cpf: '91575631587'},
+    {Id: 2, Nome: 'Camila Cabelo', Funcao: 'Manicure', Cpf: '68765684100'},
+    {Id: 3, Nome: 'Fabrício Guimarães', Funcao: 'Barbeiro', Cpf: '14725860695'},
   ];
 
   constructor() {}

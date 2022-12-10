@@ -35,7 +35,7 @@ export class CadastroProfissionalComponent implements OnInit {
   //Limpa todos os campos menos o Id (pra evitar criar um novo profissional após limpar campos de um ja existente)
   limparForm(){
     this.registerForm.controls['Nome'].reset();
-    this.registerForm.controls['Telefone'].reset();
+    this.registerForm.controls['Funcao'].reset();
     this.registerForm.controls['Cpf'].reset();
   }
 
@@ -72,8 +72,8 @@ export class CadastroProfissionalComponent implements OnInit {
   validacao(){
     this.registerForm = this.fb.group({
       Id: [],
-      Nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
-      Telefone: ['', Validators.required, Validators.minLength(8), Validators.maxLength(13)],
+      Nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
+      Funcao: ['', Validators.required],
       Cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]]
     });
   }
