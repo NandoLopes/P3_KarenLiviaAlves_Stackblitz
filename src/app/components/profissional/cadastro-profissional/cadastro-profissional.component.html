@@ -31,9 +31,9 @@
             <select type="text"[ngClass]="{'is-invalid': registerForm.get('Funcao').errors && registerForm.get('Funcao').touched}"
               formControlName="Funcao" placeholder="Insira o Funcao">
               <option value=""></option>
-              <option value="barbeiro">Barbeiro</option>
-              <option value="manicure">Manicure</option>
-              <option value="admin">Admin</option>
+              <option value="Barbeiro">Barbeiro</option>
+              <option value="Manicure">Manicure</option>
+              <option value="Admin">Admin</option>
             </select>
             <div *ngIf="registerForm.get('Funcao').hasError('required')
               && registerForm.get('Funcao').touched" class="invalid-feedback">Funcao do Cliente é obrigatória.

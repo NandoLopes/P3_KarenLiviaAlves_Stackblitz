@@ -12,17 +12,17 @@
         <div>
           <div class="center"><br />
             <label>Nome:</label><br />
-            <input type="text" [ngClass]="{'is-invalid': registerForm.get('Usuario').errors && registerForm.get('Usuario').touched}"
-            formControlName="Usuario" placeholder="Insira o usuario">
+            <input type="text" [ngClass]="{'is-invalid': registerForm.get('Nome').errors && registerForm.get('Nome').touched}"
+            formControlName="Nome" placeholder="Insira o nome">
             <div *ngIf="registerForm.get('Nome').hasError('required')
-              && registerForm.get('Nome').touched" class="invalid-feedback">Digite a Nome.
+              && registerForm.get('Nome').touched" class="invalid-feedback">Digite o Nome.
             </div>
             <div *ngIf="registerForm.get('Nome').hasError('minLength')
               && registerForm.get('Nome').touched" class="invalid-feedback">Nome deve ter no pelo menos 4 caracteres.
             </div>
             <div *ngIf="registerForm.get('Nome').hasError('maxLength')
               && registerForm.get('Nome').touched" class="invalid-feedback">Nome deve ter no máximo 10 caracteres.
-            </div>
+            </div><br /><br />
 
             <label>Usuário:</label><br />
             <input type="text" [ngClass]="{'is-invalid': registerForm.get('Usuario').errors && registerForm.get('Usuario').touched}"
@@ -54,7 +54,7 @@
               <span>Usuário já existe.</span>
             </div>
             <div>
-              <button class="btnexterno" [disabled]="!registerForm.valid" (click)="criar()">Entrar
+              <button class="btnexterno" [disabled]="!registerForm.valid" (click)="criar()">Criar
               </button><br /><br />
               <a [routerLink]="['/cadastrar']">Criar conta</a>
             </div>
